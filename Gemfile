@@ -2,9 +2,9 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
 
-gem 'puma'
+gem 'pg'
 gem 'jquery-rails'
-
+gem 'puma'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.5'
