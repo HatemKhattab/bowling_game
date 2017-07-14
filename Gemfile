@@ -12,7 +12,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :test do
+group :development, :test do
   # Pretty printed test output
   gem 'turn', '~> 0.8.3', :require => false
+  gem 'rspec-rails', '~> 3.5'
 end
