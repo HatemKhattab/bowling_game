@@ -3,15 +3,15 @@ source 'http://rubygems.org'
 gem 'jquery-rails'
 gem 'pg'
 gem 'puma'
-gem 'rails', '3.1.3'
+gem 'rails', '4.2.2'
 
 group :assets do
-  gem 'coffee-rails', '~> 3.1.1'
-  gem 'sass-rails',   '~> 3.1.5'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'coffee-rails'
+  gem 'sass-rails'
+  gem 'uglifier'
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails'
   gem 'turn', '~> 0.8.3', require: false
 end
