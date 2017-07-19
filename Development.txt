@@ -8,6 +8,8 @@ The game is between two player , but for simplicity i will implement it to one p
 
 - player will play the game as the following , he will press play button 
 and then it will be created a game object that contain  ball1 and ball 2 
-randomly and scores 
+randomly and claculate scores 
 
-- Im thinking if the game class will be Activerecord and have all tha values and function that required
+- Im thinking if the game class will be Activerecord and have all the values and functions that required to play the game.
+
+- The calculation of points calculations perform as the game rules
