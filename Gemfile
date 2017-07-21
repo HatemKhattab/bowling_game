@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'jquery-rails'
-gem 'pg'
+gem 'pg', '0.20.0'
 gem 'puma'
 gem 'rails', '4.2.2'
 
