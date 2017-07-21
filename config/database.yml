@@ -1,14 +1,9 @@
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
+
 development:
   adapter: postgresql
   database: game_development
   pool: 5
-  username: game
-  password: password1
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -17,12 +12,9 @@ test:
   adapter: postgresql
   database: game_test
   pool: 5
-  username: game
-  password: password1
 
 production:
   adapter: sqlite3
   database: game_production
   pool: 5
-  username: game
-  password: password1
+
