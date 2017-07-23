@@ -6,4 +6,9 @@ RSpec.describe Game, type: :model do
     expect(@game).not_to be_nil
   end
 
+  it 'new game contains frames as empty array ' do
+    @game = Game.new
+    expect(@game).to have_attributes(frames: [])
+  end
+
 end
