@@ -11,6 +11,11 @@ class Game < ActiveRecord::Base
     #TODO: fix score calculation
     ball1 = b1.present? ? b1 : rand(0..PINS)
     ball2 = b2.present? ? b2 : rand(0..PINS - ball1)
-    frames << {ball_1: ball1, ball_2: ball2, score: ball1+ball2 }
+    ball2 = nil if ball1==10
+    frames << {ball_1: ball1, ball_2: ball2, score: 0 }
   end
 end
+
+
+#a = ("a" if foo) || ("b" if bar) || "c"
+#if foo then 'a' elsif bar; then 'b' else 'c'
