@@ -53,10 +53,16 @@ RSpec.describe Game, type: :model do
       frame_2 = @game.frames[1]
       frame_3 = @game.frames[2]
       frame_4 = @game.frames[3]
+      frame_5 = @game.frames[4]
+      frame_6 = @game.frames[5]
+      frame_7 = @game.frames[6]
       expect(frame_1[:score]).to eq(8)
       expect(frame_2[:score]).to eq(28)
       expect(frame_3[:score]).to eq(47)
       expect(frame_4[:score]).to eq(56)
+      expect(frame_5[:score]).to eq(74)
+      expect(frame_6[:score]).to eq(83)
+      expect(frame_7[:score]).to eq(103)
     end
 
   end
