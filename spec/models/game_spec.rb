@@ -40,11 +40,23 @@ RSpec.describe Game, type: :model do
 
   describe 'Testing with existing scenario' do
     # game table at http://www.alltombowling.nu/skola_rakna.php
-    @game = Game.new
-    frames = [[6, 2], [8, 2], [10, nil], [9, 0], [6, 4], [8, 1], [9, 1], [10, nil], [10, nil]]
+    before {
+      @game = Game.new
+      frames = [[6, 2], [8, 2], [10, nil], [9, 0], [6, 4], [8, 1], [9, 1], [10, nil], [10, nil]]
+      frames.each do |b1, b2|
+        @game.play(b1, b2)
+      end
+    }
 
-    frames.each do |b1, b2|
-    @game.play(b1, b2)
+    it 'calculate the right score' do
+      frame_1 = @game.frames[0]
+      frame_2 = @game.frames[1]
+      frame_3 = @game.frames[2]
+      frame_4 = @game.frames[3]
+      expect(frame_1[:score]).to eq(8)
+      expect(frame_2[:score]).to eq(28)
+      expect(frame_3[:score]).to eq(47)
+      expect(frame_4[:score]).to eq(56)
     end
 
   end
