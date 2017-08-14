@@ -9,7 +9,11 @@
 
   <tr>
     <%@game.frames.each do |frame|%>
-      <td><%=frame[:ball_1]%> | <%=frame[:ball_2]%> </td>
+      <td><%=frame[:ball_1]%> | <%=frame[:ball_2]%>
+        <%if frame[:ball_3].present?%>
+        | <%=frame[:ball_3]%>
+        <%end%>
+       </td>
     <%end%>
   </tr>
     <%@game.frames.each do |frame|%>
@@ -20,7 +24,7 @@
   </tr>
 </table><br>
 
-<%= button_to "Play", { :controller => "games", :action => "play"} %>
+<%= button_to "Play", { :controller => "games", :action => "play"}%>
 
 
 <style>
