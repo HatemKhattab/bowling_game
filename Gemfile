@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'capybara'
 gem 'jquery-rails'
 gem 'pg', '0.20.0'
 gem 'puma'
