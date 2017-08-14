@@ -1,4 +1,9 @@
 Bowling::Application.routes.draw do
+  get 'games/index'
+  #root "games#game"
+  root :to => 'games#index'
+  post "games/play" => "games#play"
+  post "games/new" => "games#new"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

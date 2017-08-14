@@ -1,0 +1,38 @@
+<img src="https://viewstockholm.com/wp-content/uploads/2015/09/bowling-stockholm.jpg" align="middle">
+<%= button_to "New Game", { :controller => "games", :action => "new"} %><br>
+<table>
+  <tr>
+    <%(1..10).each do |num|%>
+    <td> <strong> <%=num%> </strong></td>
+    <%end%>
+  </tr>
+
+  <tr>
+    <%@game.frames.each do |frame|%>
+      <td><%=frame[:ball_1]%> | <%=frame[:ball_2]%> </td>
+    <%end%>
+  </tr>
+    <%@game.frames.each do |frame|%>
+      <td><%=frame[:score]%></td>
+    <%end%>
+  <tr>
+
+  </tr>
+</table><br>
+
+<%= button_to "Play", { :controller => "games", :action => "play"} %>
+
+
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+</style>
