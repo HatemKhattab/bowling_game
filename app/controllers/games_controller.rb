@@ -8,6 +8,7 @@ class GamesController < ApplicationController
     unless @game.over?
       @game.play
       @game.save
+      session[:player] = 2
     end
     redirect_to action: 'index'
   end
