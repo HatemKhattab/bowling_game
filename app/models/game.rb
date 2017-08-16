@@ -21,6 +21,7 @@ class Game < ActiveRecord::Base
     frame = {ball_1: ball1, ball_2: ball2,ball_3: ball3, score: sum , strike: strike_status, spare: spare_status }
     frames << frame
     clac_score(current_index) if current_index > 0
+    self.save
   end
 
   def clac_score(frame_num)

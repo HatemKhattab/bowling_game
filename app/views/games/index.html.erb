@@ -26,6 +26,30 @@
 
 <%= button_to "Player 1", { :controller => "games", :action => "play1"}%>
 
+<table>
+  <tr>
+    <%(1..10).each do |num|%>
+    <td> <strong> <%=num%> </strong></td>
+    <%end%>
+  </tr>
+
+  <tr>
+    <%@game_2.frames.each do |frame|%>
+      <td><%=frame[:ball_1]%> | <%=frame[:ball_2]%>
+        <%if frame[:ball_3].present?%>
+        | <%=frame[:ball_3]%>
+        <%end%>
+       </td>
+    <%end%>
+  </tr>
+    <%@game_2.frames.each do |frame|%>
+      <td><%=frame[:score]%></td>
+    <%end%>
+  <tr>
+
+  </tr>
+</table><br>
+<%= button_to "Player 2", { :controller => "games", :action => "play2"}%>
 
 <style>
 table {
