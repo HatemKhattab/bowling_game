@@ -1,5 +1,7 @@
 <img src="https://viewstockholm.com/wp-content/uploads/2015/09/bowling-stockholm.jpg" align="middle">
+<%=session[:info]%>
 <%= button_to "New Game", { :controller => "games", :action => "new"} %><br>
+<%=session[:player]%>
 <table>
   <tr>
     <%(1..10).each do |num|%>
@@ -23,8 +25,7 @@
 
   </tr>
 </table><br>
-
-<%= button_to "Player 1", { :controller => "games", :action => "play1"}%>
+<%= button_to "Player 1", { :controller => "games", :action => "play1"}, disabled: (session[:player] == 2 || session[:game_over]) %>
 
 <table>
   <tr>
@@ -49,7 +50,7 @@
 
   </tr>
 </table><br>
-<%= button_to "Player 2", { :controller => "games", :action => "play2"}%>
+<%= button_to "Player 2", { :controller => "games", :action => "play2"}, disabled: (session[:player] == 1 || session[:game_over])%>
 
 <style>
 table {
