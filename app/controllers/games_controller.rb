@@ -41,7 +41,13 @@ class GamesController < ApplicationController
       session[:game_over] = true
       score_1 = @game_1.frames[9][:score]
       score_2 = @game_2.frames[9][:score]
-      session[:info] = 'Game over !!'
+      if score_1 == score_2
+        session[:info] = ' Game Over!!! The two players has the same result'
+      elsif score_1 > score_2
+        session[:info] = ' Game Over!!! The winner is Player 1'
+      elsif score_1 < score_2
+        session[:info] = ' Game Over!!! The winner is Player 2'
+      end
     end
   end
 end

@@ -1,14 +1,14 @@
 <img src="https://viewstockholm.com/wp-content/uploads/2015/09/bowling-stockholm.jpg" align="middle">
-<%=session[:info]%>
+
 <%= button_to "New Game", { :controller => "games", :action => "new"} %><br>
-<%=session[:player]%>
+<p><font color="red" size=5><%=session[:info]%></font></p>
+
 <table>
   <tr>
     <%(1..10).each do |num|%>
     <td> <strong> <%=num%> </strong></td>
     <%end%>
   </tr>
-
   <tr>
     <%@game_1.frames.each do |frame|%>
       <td><%=frame[:ball_1]%> | <%=frame[:ball_2]%>
@@ -22,9 +22,9 @@
       <td><%=frame[:score]%></td>
     <%end%>
   <tr>
-
   </tr>
 </table><br>
+
 <%= button_to "Player 1", { :controller => "games", :action => "play1"}, disabled: (session[:player] == 2 || session[:game_over]) %>
 
 <table>
@@ -47,7 +47,6 @@
       <td><%=frame[:score]%></td>
     <%end%>
   <tr>
-
   </tr>
 </table><br>
 <%= button_to "Player 2", { :controller => "games", :action => "play2"}, disabled: (session[:player] == 1 || session[:game_over])%>
