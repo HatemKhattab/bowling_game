@@ -9,7 +9,7 @@ class Game < ActiveRecord::Base
 
   def play(b1 = nil, b2 = nil)
     if over?
-      raise 'Game over!!'
+      return
     end
     ball1 = b1.present? ? b1 : rand(0..PINS)
     ball2 = b2.present? ? b2 : rand(0..PINS - ball1)
