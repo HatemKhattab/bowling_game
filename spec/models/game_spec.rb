@@ -53,11 +53,13 @@ RSpec.describe Game, type: :model do
       frames =
         [
           [6, 2], [8, 2], [10, nil], [9, 0], [6, 4], [8, 1], [9, 1],
-          [10, nil], [10, nil], [8, 2]
+          [10, nil], [10, nil]
         ]
       frames.each do |b1, b2|
         @game.play(b1, b2)
       end
+      @game.play(8, 2, 7)
+
     end
 
     it 'calculate the right score' do
@@ -81,7 +83,7 @@ RSpec.describe Game, type: :model do
       expect(frame7[:score]).to eq(103)
       expect(frame8[:score]).to eq(131)
       expect(frame9[:score]).to eq(151)
-      expect(frame10[:score]).to eq(161)
+      expect(frame10[:score]).to eq(168)
     end
   end
 
