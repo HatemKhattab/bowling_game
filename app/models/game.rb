@@ -10,7 +10,6 @@ class Game < ActiveRecord::Base
     ball1 = b1.present? ? b1 : rand(0..PINS)
     ball2 = b2.present? ? b2 : rand(0..PINS - ball1)
     ball2 = nil if ball1 == 10
-    #sum = ball1 + (ball2.present? ? ball2 : 0)
     strike_status = (ball1 == 10)
     spare_status = ((ball1 + (ball2.present? ? ball2 : 0) == 10) && ball1 != 10)
     ball3 = frames.size == 9 && (strike_status || spare_status) ? rand(0..10) : nil
