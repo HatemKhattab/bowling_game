@@ -1,5 +1,37 @@
 <img src="https://viewstockholm.com/wp-content/uploads/2015/09/bowling-stockholm.jpg" align="middle">
+
 <%= button_to "New Game", { :controller => "games", :action => "new"} %><br>
+<p><font color="red" size=5><%=session[:info]%></font></p>
+
+<table>
+  <tr>
+    <%(1..10).each do |num|%>
+    <td> <strong> <%=num%> </strong></td>
+    <%end%>
+  </tr>
+  <tr>
+    <%@game1.frames.each do |frame|%>
+      <td>
+        <%if frame[:strike]%>
+          X | <%if frame[:ball_3].present?%> | <%=frame[:ball_3]%> <%end%>
+        <%elsif frame[:spare]%>
+          <%=frame[:ball_1]%> | / <%if frame[:ball_3].present?%> | <%=frame[:ball_3]%> <%end%>
+        <%else%>
+          <%=frame[:ball_1]%> | <%=frame[:ball_2]%>
+          <%if frame[:ball_3].present?%> | <%=frame[:ball_3]%> <%end%>
+        <%end%>
+      </td>
+    <%end%>
+  </tr>
+    <%@game1.frames.each do |frame|%>
+      <td><%=frame[:score]%></td>
+    <%end%>
+  <tr>
+  </tr>
+</table><br>
+
+<%= button_to "Player 1", { :controller => "games", :action => "play1"}, disabled: (session[:player] == 2 || session[:game_over]) %>
+
 <table>
   <tr>
     <%(1..10).each do |num|%>
@@ -8,24 +40,26 @@
   </tr>
 
   <tr>
-    <%@game.frames.each do |frame|%>
-      <td><%=frame[:ball_1]%> | <%=frame[:ball_2]%>
-        <%if frame[:ball_3].present?%>
-        | <%=frame[:ball_3]%>
+    <%@game2.frames.each do |frame|%>
+      <td>
+        <%if frame[:strike]%>
+          X | <%if frame[:ball_3].present?%> | <%=frame[:ball_3]%> <%end%>
+        <%elsif frame[:spare]%>
+          <%=frame[:ball_1]%> | / <%if frame[:ball_3].present?%> | <%=frame[:ball_3]%> <%end%>
+        <%else%>
+          <%=frame[:ball_1]%> | <%=frame[:ball_2]%>
+          <%if frame[:ball_3].present?%> | <%=frame[:ball_3]%> <%end%>
         <%end%>
-       </td>
+      </td>
     <%end%>
   </tr>
-    <%@game.frames.each do |frame|%>
+    <%@game2.frames.each do |frame|%>
       <td><%=frame[:score]%></td>
     <%end%>
   <tr>
-
   </tr>
 </table><br>
-
-<%= button_to "Play", { :controller => "games", :action => "play"}%>
-
+<%= button_to "Player 2", { :controller => "games", :action => "play2"}, disabled: (session[:player] == 1 || session[:game_over])%>
 
 <style>
 table {
