@@ -11,11 +11,16 @@
   </tr>
   <tr>
     <%@game1.frames.each do |frame|%>
-      <td><%=frame[:ball_1]%> | <%=frame[:ball_2]%>
-        <%if frame[:ball_3].present?%>
-        | <%=frame[:ball_3]%>
+      <td>
+        <%if frame[:strike]%>
+          X | <%if frame[:ball_3].present?%> | <%=frame[:ball_3]%> <%end%>
+        <%elsif frame[:spare]%>
+          <%=frame[:ball_1]%> | / <%if frame[:ball_3].present?%> | <%=frame[:ball_3]%> <%end%>
+        <%else%>
+          <%=frame[:ball_1]%> | <%=frame[:ball_2]%>
+          <%if frame[:ball_3].present?%> | <%=frame[:ball_3]%> <%end%>
         <%end%>
-       </td>
+      </td>
     <%end%>
   </tr>
     <%@game1.frames.each do |frame|%>
@@ -36,11 +41,16 @@
 
   <tr>
     <%@game2.frames.each do |frame|%>
-      <td><%=frame[:ball_1]%> | <%=frame[:ball_2]%>
-        <%if frame[:ball_3].present?%>
-        | <%=frame[:ball_3]%>
+      <td>
+        <%if frame[:strike]%>
+          X | <%if frame[:ball_3].present?%> | <%=frame[:ball_3]%> <%end%>
+        <%elsif frame[:spare]%>
+          <%=frame[:ball_1]%> | / <%if frame[:ball_3].present?%> | <%=frame[:ball_3]%> <%end%>
+        <%else%>
+          <%=frame[:ball_1]%> | <%=frame[:ball_2]%>
+          <%if frame[:ball_3].present?%> | <%=frame[:ball_3]%> <%end%>
         <%end%>
-       </td>
+      </td>
     <%end%>
   </tr>
     <%@game2.frames.each do |frame|%>
