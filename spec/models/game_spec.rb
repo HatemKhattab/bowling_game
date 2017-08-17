@@ -17,13 +17,10 @@ RSpec.describe Game, type: :model do
     expect(@game.frames.size).to eq(1)
   end
 
-  it 'play add frame with two balls within 0 t0 10' do
+  it 'play add frame with ball_1 within 0 t0 10' do
     @game.play
     frame = @game.frames.last
     expect(frame[:ball_1]).to be_between(0, 10)
-    unless frame[:spare]
-      expect(frame[:ball_2]).to be_between(0, 10)
-    end
   end
 
   it 'play can add frame with parameters' do
