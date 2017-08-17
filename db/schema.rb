@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(version: 20170815121922) do
     t.integer "player_id"
   end
 
-  add_index "games", ["player_id"], name: "index_games_on_player_id", using: :btree
+  add_index
+    "games", ["player_id"], name: 'index_games_on_player_id', using: :btree
 
-  create_table "players", force: :cascade do |t|
-    t.string "name"
+  create_table 'players', force: :cascade do |t|
+    t.string 'name'
   end
-
 end

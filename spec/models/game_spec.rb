@@ -1,9 +1,8 @@
 require 'rails_helper'
 RSpec.describe Game, type: :model do
-
-  before {
+  before do
     @game = Game.new
-  }
+  end
 
   it 'can create a new game' do
     expect(@game).not_to be_nil
@@ -22,7 +21,9 @@ RSpec.describe Game, type: :model do
     @game.play
     frame = @game.frames.last
     expect(frame[:ball_1]).to be_between(0, 10)
-    expect(frame[:ball_2]).to be_between(0, 10)
+    unless frame[:spare]
+      expect(frame[:ball_2]).to be_between(0, 10)
+    end
   end
 
   it 'play can add frame with parameters' do
@@ -38,68 +39,71 @@ RSpec.describe Game, type: :model do
     expect(frame[:ball_2]).to be_nil
   end
 
-  it " Add ball3 in the tenth frame if it was strike or spare" do
-    (0..9).each do |num|
-      @game.play(10,nil)
+  it 'Add ball3 in the tenth frame if it was strike or spare' do
+    10.times do
+      @game.play(10, nil)
     end
     expect(@game.frames[9][:ball_3]).to be_between(0, 10)
   end
 
   describe 'Testing with scenario 1' do
     # game table at http://www.alltombowling.nu/skola_rakna.php
-    before {
+    before do
       @game = Game.new
-      frames = [[6, 2], [8, 2], [10, nil], [9, 0], [6, 4], [8, 1], [9, 1], [10, nil], [10, nil], [8, 2]]
+      frames =
+        [
+          [6, 2], [8, 2], [10, nil], [9, 0], [6, 4], [8, 1], [9, 1],
+          [10, nil], [10, nil], [8, 2]
+        ]
       frames.each do |b1, b2|
         @game.play(b1, b2)
       end
-    }
+    end
 
     it 'calculate the right score' do
-      frame_1 = @game.frames[0]
-      frame_2 = @game.frames[1]
-      frame_3 = @game.frames[2]
-      frame_4 = @game.frames[3]
-      frame_5 = @game.frames[4]
-      frame_6 = @game.frames[5]
-      frame_7 = @game.frames[6]
-      frame_8 = @game.frames[7]
-      frame_9 = @game.frames[8]
-      frame_10 = @game.frames[9]
+      frame1 = @game.frames[0]
+      frame2 = @game.frames[1]
+      frame3 = @game.frames[2]
+      frame4 = @game.frames[3]
+      frame5 = @game.frames[4]
+      frame6 = @game.frames[5]
+      frame7 = @game.frames[6]
+      frame8 = @game.frames[7]
+      frame9 = @game.frames[8]
+      frame10 = @game.frames[9]
 
-      expect(frame_1[:score]).to eq(8)
-      expect(frame_2[:score]).to eq(28)
-      expect(frame_3[:score]).to eq(47)
-      expect(frame_4[:score]).to eq(56)
-      expect(frame_5[:score]).to eq(74)
-      expect(frame_6[:score]).to eq(83)
-      expect(frame_7[:score]).to eq(103)
-      expect(frame_8[:score]).to eq(131)
-      expect(frame_9[:score]).to eq(151)
-      expect(frame_10[:score]).to eq(161)
+      expect(frame1[:score]).to eq(8)
+      expect(frame2[:score]).to eq(28)
+      expect(frame3[:score]).to eq(47)
+      expect(frame4[:score]).to eq(56)
+      expect(frame5[:score]).to eq(74)
+      expect(frame6[:score]).to eq(83)
+      expect(frame7[:score]).to eq(103)
+      expect(frame8[:score]).to eq(131)
+      expect(frame9[:score]).to eq(151)
+      expect(frame10[:score]).to eq(161)
     end
   end
 
   describe 'Testing with scenario 1' do
-
-    before {
+    before do
       @game = Game.new
       frames = [[10, nil], [10, nil], [10, nil], [5, 1]]
       frames.each do |b1, b2|
         @game.play(b1, b2)
       end
-    }
+    end
 
     it 'calculate the right score' do
-      frame_1 = @game.frames[0]
-      frame_2 = @game.frames[1]
-      frame_3 = @game.frames[2]
-      frame_4 = @game.frames[3]
+      frame1 = @game.frames[0]
+      frame2 = @game.frames[1]
+      frame3 = @game.frames[2]
+      frame4 = @game.frames[3]
 
-      expect(frame_1[:score]).to eq(30)
-      expect(frame_2[:score]).to eq(55)
-      expect(frame_3[:score]).to eq(71)
-      expect(frame_4[:score]).to eq(77)
+      expect(frame1[:score]).to eq(30)
+      expect(frame2[:score]).to eq(55)
+      expect(frame3[:score]).to eq(71)
+      expect(frame4[:score]).to eq(77)
     end
   end
 end

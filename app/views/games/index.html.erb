@@ -10,7 +10,7 @@
     <%end%>
   </tr>
   <tr>
-    <%@game_1.frames.each do |frame|%>
+    <%@game1.frames.each do |frame|%>
       <td><%=frame[:ball_1]%> | <%=frame[:ball_2]%>
         <%if frame[:ball_3].present?%>
         | <%=frame[:ball_3]%>
@@ -18,7 +18,7 @@
        </td>
     <%end%>
   </tr>
-    <%@game_1.frames.each do |frame|%>
+    <%@game1.frames.each do |frame|%>
       <td><%=frame[:score]%></td>
     <%end%>
   <tr>
@@ -35,7 +35,7 @@
   </tr>
 
   <tr>
-    <%@game_2.frames.each do |frame|%>
+    <%@game2.frames.each do |frame|%>
       <td><%=frame[:ball_1]%> | <%=frame[:ball_2]%>
         <%if frame[:ball_3].present?%>
         | <%=frame[:ball_3]%>
@@ -43,7 +43,7 @@
        </td>
     <%end%>
   </tr>
-    <%@game_2.frames.each do |frame|%>
+    <%@game2.frames.each do |frame|%>
       <td><%=frame[:score]%></td>
     <%end%>
   <tr>
