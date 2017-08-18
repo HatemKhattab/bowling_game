@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-ruby '2.3.4'
+ruby '2.3.0'
 gem 'capybara'
 gem 'jquery-rails'
 gem 'pg', '0.20.0'
@@ -11,6 +11,11 @@ group :assets do
   gem 'coffee-rails'
   gem 'sass-rails'
   gem 'uglifier'
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'heroku'
 end
 
 group :development, :test do
