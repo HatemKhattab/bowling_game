@@ -2,7 +2,7 @@
 Develop bowling game with with Ruby on Rails,two players can play
 in the same time and they get a random result with every game round.
 
-##Game rules
+## Game rules
 you can take a look at https://en.wikipedia.org/wiki/Ten-pin_bowling#Rules_of_play
 
 ## Url
