@@ -5,7 +5,7 @@ in the same time and they get a random result with every game round.
 ## Game rules
 you can take a look at https://en.wikipedia.org/wiki/Ten-pin_bowling#Rules_of_play
 
-## Url
+## URL
 you can try the game at https://bowling2017.herokuapp.com
 
 ## Usage
